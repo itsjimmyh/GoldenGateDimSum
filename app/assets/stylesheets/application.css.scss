@@ -1,0 +1,89 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap.min
+ *= require_tree .
+ *= require_self
+ */
+
+
+/* General */
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+body {
+  min-width: 1000px;
+}
+
+html, body {
+  height: 100%;
+}
+
+
+/* Nav */
+.navbar {
+  margin-bottom: 0;
+  border-bottom: 1px solid darkGrey;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 0px;
+}
+
+.nav .open a:focus, .nav li a:hover, .nav li>a:focus {
+  background-color: transparent;
+  // color: green;
+}
+
+.navbar-brand, .navbar-brand:hover, .nav>li>a {
+  color: #565a5c;
+}
+
+
+/* Modal */
+.modal-dialog {
+  margin-top: 200px;
+}
+
+.modal-content {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2px;
+  background-color: rgba(250, 250, 250, 1);
+}
+
+.modal-backdrop {
+  background-color: #F0EFF0;
+}
+
+.modal-backdrop.in {
+  opacity: 0.8;
+}
+
+input {
+  border: 1px;
+}
+
+
+/* Form */
+#flash-message {
+  text-align: left;
+}
+
+.form-control {
+  border-radius: 2px;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 2px;
+}

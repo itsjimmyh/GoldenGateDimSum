@@ -13,7 +13,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string  :delivery_address,           default: 'Your Delivery Address'
       t.string  :apartment,                  default: 'Your Apt #'
       t.string  :city,                       default: 'Your City'
-      t.integer :zip                         default: 'Your Zip Code'
+      t.integer :zip,                        default: 'Your Zip Code'
 
       ## Recoverable
       t.string   :reset_password_token

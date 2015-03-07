@@ -12,13 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery.serializejson.min
+//= require bootstrap.min
 //= require underscore
 //= require backbone
-//= require golden_gate_dim_sum
+//= require ggDimSum
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
+//= require_tree ./utils
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .

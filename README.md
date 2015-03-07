@@ -1,14 +1,14 @@
 
 <h3>www.ggDimSum.com</h3>
 
-<h1>Golden Gate Dim Sum Seafood Restaurant</h1>
+<h1>Golden Gate Dim Sum Seafood Restaurant Online Ordering</h1>
 <h2>Key Features</h2>
 <ul>
   <li>Users, Facebook Login</li>
   <li>Browse previous order history</li>
   <li>Create and Order --> Process Payments</li>
   <li>Most Popular items</li>
-  <li>NewsLetters</li>
+  <li>Newsletters</li>
   <li>Promotional Discounts</li>
 
 </ul>
@@ -18,15 +18,15 @@
 <h4>Phase 0: User Authentication</h4>
 <ul>
   <li>Devise for Users</li>
-  <li>Users can register, sign in, and sign out of the application.</li>
-  <li>Support restricting access to certain pages based on whether a user is authenticated.</li>
+  <li>Users can register, sign in, and sign out of the application</li>
+  <li>Support restricting access to certain pages based on whether a user is authenticated</li>
   <li>Checkout as Guest</li>
 </ul>
 
 <h4>Phase 2: Admin Panel</h4>
 <ul>
   <li>Display of all orders: In Progress, Delivering, Delivered</li>
-  <li></li>
+  <li>Cancel Orders / Update Orders</li>
 </ul>
 
 <h4>Phase 2: Menu</h4>
