@@ -13,6 +13,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'devise'
 gem 'backbone-on-rails'
 gem 'font-awesome-rails'
+gem 'unicorn'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'annotate'
