@@ -43,6 +43,7 @@ ggDimSum.Views.LayoutsNavbar = Backbone.CompositeView.extend({
       type: 'DELETE',
       success: function (model, resp) {
         ggDimSum.currentUser.clear();
+        window.location.reload();
       }
     })
   },
