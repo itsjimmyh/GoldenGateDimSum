@@ -7,7 +7,7 @@ module Api
 
   def create
     @user = User.find_for_database_authentication( email: params_email )
-    if @user.valid_password?(params_password)
+    if @user && @user.valid_password?(params_password)
       sign_in(:user, @user)
       render :show
       return
