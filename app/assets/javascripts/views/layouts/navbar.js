@@ -51,6 +51,7 @@ ggDimSum.Views.LayoutsNavbar = Backbone.CompositeView.extend({
       type: 'DELETE',
       success: function (model, resp) {
         ggDimSum.currentUser.clear();
+        // window.location = 'https://ggdimsum.herokuapp.com';
         // console.log('gg.currentUser.attributes after logout');
         // console.log(ggDimSum.currentUser.attributes);
         // window.location.reload(); old way of getting new csrf token
@@ -61,6 +62,7 @@ ggDimSum.Views.LayoutsNavbar = Backbone.CompositeView.extend({
       }
     })
   },
+
 
   render: function () {
     var renderedContent = this.template();

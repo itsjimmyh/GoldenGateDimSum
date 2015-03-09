@@ -2,7 +2,7 @@
   <div class="alert <%= flashClass %>">
     <% if (messages) { %>
       <% messages.forEach(function (message) { %>
-        <li><%= message %></li>
+        <li data-dismiss="alert"><%= message %></li>
       <% }) %>
     <% } %>
   </div>
