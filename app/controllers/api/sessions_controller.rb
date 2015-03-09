@@ -1,15 +1,25 @@
 module Api
   class SessionsController < Devise::SessionsController
   respond_to :json
-  skip_before_filter :verify_signed_out_user
+  skip_before_filter :verify_signed_out_user, only: :destroy
 
-  # before_filter :testing
+  # before_filter :authenticate_user!
 
   def create
-    @user = User.find_for_database_authentication( email: params_email )
+    @user = User.find_for_database_authentication(email: params_email)
     if @user && @user.valid_password?(params_password)
-      sign_in(:user, @user)
+      @user.reload
+      sign_in(@user)
       render :show
+      p ""
+      p "@user from sessions#create should be: user details"
+      p @user
+      p "@user from sessions#create should be: user details"
+      p ""
+      p "current api user from sessions#create"
+      p current_api_user
+      p "current api user from sessions#create"
+      p ""
       return
     end
     invalid_login_attempt
@@ -19,8 +29,16 @@ module Api
     p ""
     p "hitting destroy"
     p ""
+    p "before sign_out(user) sessions#destroy should be: current_api_user details"
+    p current_api_user
+    p "before sign_out(user) sessions#destroy should be: current_api_user details"
     sign_out(resource_name)
-    render json: { csrf_token: form_authenticity_token }
+    p "after sign_out(user) from sessions#destroy should be: nil"
+    p current_api_user
+    p "after sign_out(user) from sessions#destroy should be: nil"
+    # should return new csrf_token for subsequent registrations
+    # render json: { csrf_token: form_authenticity_token }
+    render json: { message: 'Signed Out' }
   end
 
   private

@@ -1,9 +1,9 @@
 <div id="flash-message">
   <div class="alert <%= flashClass %>">
-
+    <% if (messages) { %>
       <% messages.forEach(function (message) { %>
         <li><%= message %></li>
       <% }) %>
-      
+    <% } %>
   </div>
 </div>

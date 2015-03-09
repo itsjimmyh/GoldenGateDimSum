@@ -6,7 +6,10 @@ module Api
     def create
       @user = User.new(user_params)
       if @user.save
-        sign_in(:user, @user)
+        sign_in(@user)
+        p "current_api_user from registrations#create"
+        p current_api_user
+        p "current_api_user from registrations#create"
         render :show
       else
         render json: @user.errors.full_messages, status: :unprocessable_entity

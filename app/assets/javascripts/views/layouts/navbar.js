@@ -38,19 +38,24 @@ ggDimSum.Views.LayoutsNavbar = Backbone.CompositeView.extend({
   },
 
   logoutCurrentUser: function (user) {
-    // var $authToken = $( 'meta[name="csrf-token"]' ).attr( 'content' );
-    // console.log($authToken.toString());
-    // console.log("authToken Before");
+    var $authToken = $( 'meta[name="csrf-token"]' ).attr( 'content' );
+    console.log($authToken.toString());
+    console.log("$authToken Before Logout");
+
+    console.log('gg.currentUser.attributes before Logout')
+    console.log(ggDimSum.currentUser.attributes);
     $.ajax({
       url: '/api/users/sign_out',
       type: 'DELETE',
       success: function (model, resp) {
         ggDimSum.currentUser.clear();
+        console.log('gg.currentUser.attributes after logout');
+        console.log(ggDimSum.currentUser.attributes);
         // window.location.reload(); old way of getting new csrf token
         // new way of updating csrf token after logging out session
-        // var $authToken = $( 'meta[name="csrf-token"]').attr( 'content' );
-        // console.log($authToken.toString());
-        // console.log("authToken After");
+        var $authToken = $( 'meta[name="csrf-token"]').attr( 'content' );
+        console.log($authToken.toString());
+        console.log("authToken After Logout");
       }
     })
   },
