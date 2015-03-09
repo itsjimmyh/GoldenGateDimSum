@@ -43,18 +43,18 @@ ggDimSum.Views.AuthModal = Backbone.CompositeView.extend({
     var user = new ggDimSum.Models.User(userSignupParams);
     var that = this;
 
-    var $authToken = $( 'meta[name="csrf-token"]' ).attr( 'content' );
-    console.log($authToken.toString());
-    console.log("$authToken before signUp");
+    // var $authToken = $( 'meta[name="csrf-token"]' ).attr( 'content' );
+    // console.log($authToken.toString());
+    // console.log("$authToken before signUp");
 
     user.save({}, {
       success: function (model, resp) {
         that.$('#signup-modal').modal('hide');
         that.loginCurrentUser(model.attributes);
 
-        var $authToken = $( 'meta[name="csrf-token"]' ).attr( 'content' );
-        console.log($authToken.toString());
-        console.log("$authToken after signUp");
+        // var $authToken = $( 'meta[name="csrf-token"]' ).attr( 'content' );
+        // console.log($authToken.toString());
+        // console.log("$authToken after signUp");
       },
       error: function (model, resp) {
         that.addFlashErrors(resp.responseJSON);
