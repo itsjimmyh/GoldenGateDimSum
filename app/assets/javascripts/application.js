@@ -16,6 +16,7 @@
 //= require bootstrap.min
 //= require underscore
 //= require backbone
+//= require pace.min
 //= require ggDimSum
 //= require_tree ../templates
 //= require_tree ./models
@@ -24,3 +25,8 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+
+
+(function () {
+  console.log('Hello from your friendly web developer:  --> www.itsjimmyh.com <--');
+})();

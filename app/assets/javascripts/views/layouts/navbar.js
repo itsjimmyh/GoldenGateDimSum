@@ -5,7 +5,6 @@ ggDimSum.Views.LayoutsNavbar = Backbone.CompositeView.extend({
     this.addUsersUl();
     this.addLoginModal();
     this.addSignupModal();
-
   },
 
   events: {

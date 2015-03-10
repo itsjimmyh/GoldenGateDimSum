@@ -7,9 +7,7 @@ module Api
       @user = User.new(user_params)
       if @user.save
         sign_in(@user)
-        p "current_api_user from registrations#create"
-        p current_api_user
-        p "current_api_user from registrations#create"
+        registrations_create_console_printout_testing
         render :show
       else
         render json: @user.errors.full_messages, status: :unprocessable_entity
@@ -26,6 +24,14 @@ module Api
         :first_name,
         :last_name
       )
+    end
+
+    def registrations_create_console_printout_testing
+      p "current_api_user from registrations#create"
+      p ""
+      p current_api_user
+      p ""
+      p "current_api_user from registrations#create"
     end
 
   end
