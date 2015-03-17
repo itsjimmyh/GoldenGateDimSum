@@ -11,12 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require pace.min
 //= require jquery_ujs
 //= require jquery.serializejson.min
 //= require bootstrap.min
 //= require underscore
 //= require backbone
-//= require pace.min
 //= require ggDimSum
 //= require_tree ../templates
 //= require_tree ./models
@@ -29,4 +29,24 @@
 
 (function () {
   console.log('Hello from your friendly web developer:  --> www.itsjimmyh.com <--');
+
+  // figure out how to use Pace.track ( 'jquery.ajax event' );
+  // then we don't have to wrap all ajax calls with Pace.track
+  
+  // $(document).ajaxStart(function (event) {
+  //   console.log(event);
+  //   console.log(event.function);
+  //   Pace.track(function () {
+  //   });
+  // });
+
+  // $(document).ajaxSend(function ( event, request, settings ) {
+  //   console.log(event);
+  //   console.log(request);
+  //   console.log(settings);
+  //   Pace.track(function () {
+  //
+  //   });
+  // })
+
 })();

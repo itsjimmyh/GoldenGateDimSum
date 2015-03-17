@@ -8,23 +8,32 @@ module Api
   # before_filter :authenticate_user!
 
   def create
+    # find user from session cookie -> email, then authenticate
     @user = User.find_for_database_authentication(email: session_params[:email])
-
+    # sleep helps test pace loading
+    # sleep 3
     if @user && @user.valid_password?(session_params[:password])
       @user.reload
       sign_in(@user)
-      sessions_create_console_testing_printouts
+      # sessions_create_console_testing_printouts
       render :show
       return
     end
 
-    invalid_login_attempt
+    # return prevents login error
+    invalid_login_attempt_error
   end
 
   def destroy
-    before_session_destroy_signout_console_testing_printout
+    # before_session_destroy_signout_console_testing_printout
+    
+    # sleep tests pace loading
+    # sleep 3
+    # devise sign_out user
     sign_out(resource_name)
-    after_session_destroy_signout_console_testing_printout
+
+    # after_session_destroy_signout_console_testing_printout
+
     # should return new csrf_token for subsequent registrations because not refreshing page
     # no longer getting unable to verify csrf_token, so no need
     # render json: { csrf_token: form_authenticity_token }
@@ -33,7 +42,8 @@ module Api
 
 
   private
-  def invalid_login_attempt
+  def invalid_login_attempt_error
+    # create a custom message to return when login error
     warden.custom_failure!
     render status: 401, json: { success: false, message: 'Invalid Login Credentials' }
   end
@@ -42,6 +52,8 @@ module Api
     params.require(:user).permit(:email, :password)
   end
 
+
+  ## pretty print in terminal
   def sessions_create_console_testing_printouts
     p ""
     p "@user from sessions#create should be: user details"
