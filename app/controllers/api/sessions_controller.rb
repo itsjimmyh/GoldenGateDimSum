@@ -23,9 +23,7 @@ module Api
 
   def destroy
     before_session_destroy_signout_console_testing_printout
-
     sign_out(resource_name)
-
     after_session_destroy_signout_console_testing_printout
     # should return new csrf_token for subsequent registrations because not refreshing page
     # no longer getting unable to verify csrf_token, so no need
@@ -33,8 +31,8 @@ module Api
     render json: { message: 'Signed Out' }
   end
 
-  private
 
+  private
   def invalid_login_attempt
     warden.custom_failure!
     render status: 401, json: { success: false, message: 'Invalid Login Credentials' }

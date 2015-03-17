@@ -22,18 +22,20 @@ ggDimSum.Views.AuthModal = Backbone.CompositeView.extend({
     var userParams = $(event.target).serializeJSON();
     var that = this;
 
-    $.ajax({
-      url: 'api/users/sign_in',
-      type: 'POST',
-      data: userParams,
-      success: function (model, resp) {
-        that.$('#login-modal').modal('hide');
-        that.handleModalHide();
-        that.loginCurrentUser(model);
-      },
-      error: function (model, resp) {
-        that.addFlashErrors([model.responseJSON.message]);
-      }
+    Pace.track(function () {
+      $.ajax({
+        url: 'api/users/sign_in',
+        type: 'POST',
+        data: userParams,
+        success: function (model, resp) {
+          that.$('#login-modal').modal('hide');
+          that.handleModalHide();
+          that.loginCurrentUser(model);
+        },
+        error: function (model, resp) {
+          that.addFlashErrors([model.responseJSON.message]);
+        }
+      });
     });
   },
 
@@ -46,20 +48,21 @@ ggDimSum.Views.AuthModal = Backbone.CompositeView.extend({
     // var $authToken = $( 'meta[name="csrf-token"]' ).attr( 'content' );
     // console.log($authToken.toString());
     // console.log("$authToken before signUp");
+    Pace.track(function () {
+      user.save({}, {
+        success: function (model, resp) {
+          that.$('#signup-modal').modal('hide');
+          that.loginCurrentUser(model.attributes);
 
-    user.save({}, {
-      success: function (model, resp) {
-        that.$('#signup-modal').modal('hide');
-        that.loginCurrentUser(model.attributes);
-
-        // var $authToken = $( 'meta[name="csrf-token"]' ).attr( 'content' );
-        // console.log($authToken.toString());
-        // console.log("$authToken after signUp");
-      },
-      error: function (model, resp) {
-        that.addFlashErrors(resp.responseJSON);
-      }
-    })
+          // var $authToken = $( 'meta[name="csrf-token"]' ).attr( 'content' );
+          // console.log($authToken.toString());
+          // console.log("$authToken after signUp");
+        },
+        error: function (model, resp) {
+          that.addFlashErrors(resp.responseJSON);
+        }
+      });
+    });
   },
 
   handleModalHide: function () {

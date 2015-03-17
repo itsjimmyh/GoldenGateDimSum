@@ -45,21 +45,23 @@ ggDimSum.Views.LayoutsNavbar = Backbone.CompositeView.extend({
 
     // console.log('gg.currentUser.attributes before Logout')
     // console.log(ggDimSum.currentUser.attributes);
-    $.ajax({
-      url: '/api/users/sign_out',
-      type: 'DELETE',
-      success: function (model, resp) {
-        ggDimSum.currentUser.clear();
-        // window.location = 'https://ggdimsum.herokuapp.com';
-        // console.log('gg.currentUser.attributes after logout');
-        // console.log(ggDimSum.currentUser.attributes);
-        // window.location.reload(); old way of getting new csrf token
-        // new way of updating csrf token after logging out session
-        // var $authToken = $( 'meta[name="csrf-token"]').attr( 'content' );
-        // console.log($authToken.toString());
-        // console.log("authToken After Logout");
-      }
-    })
+    Pace.track(function () {
+      $.ajax({
+        url: '/api/users/sign_out',
+        type: 'DELETE',
+        success: function (model, resp) {
+          ggDimSum.currentUser.clear();
+          // window.location = 'https://ggdimsum.herokuapp.com';
+          // console.log('gg.currentUser.attributes after logout');
+          // console.log(ggDimSum.currentUser.attributes);
+          // window.location.reload(); old way of getting new csrf token
+          // new way of updating csrf token after logging out session
+          // var $authToken = $( 'meta[name="csrf-token"]').attr( 'content' );
+          // console.log($authToken.toString());
+          // console.log("authToken After Logout");
+        }
+      });
+    });
   },
 
 
