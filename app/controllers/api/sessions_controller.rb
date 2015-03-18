@@ -26,7 +26,7 @@ module Api
 
   def destroy
     # before_session_destroy_signout_console_testing_printout
-    
+
     # sleep tests pace loading
     # sleep 3
     # devise sign_out user
