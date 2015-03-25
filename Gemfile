@@ -24,6 +24,7 @@ group :development do
   gem 'meta_request'
   gem 'quiet_assets'
   gem 'sqlite3'
+  gem 'awesome_print'
 end
 
 group :production do

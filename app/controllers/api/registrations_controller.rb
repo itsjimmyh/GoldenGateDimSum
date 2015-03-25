@@ -7,6 +7,9 @@ module Api
       @user = User.new(user_params)
       if @user.save
         sign_in(@user)
+        # refresh user to show what's saved in database
+        @user.reload
+        # console printing, remove later
         registrations_create_console_printout_testing
         render :show
       else
@@ -16,6 +19,7 @@ module Api
 
 
     private
+    # Strong Parameters
     def user_params
       params.require(:user).permit(
         :email,
@@ -26,12 +30,11 @@ module Api
       )
     end
 
+    # Testing methods, can delete later
     def registrations_create_console_printout_testing
-      p "current_api_user from registrations#create"
-      p ""
-      p current_api_user
-      p ""
-      p "current_api_user from registrations#create"
+      p " ===== current_api_user from registrations#create ===== "
+      p ap current_api_user
+      p " ===== current_api_user from registrations#create ===== "
     end
 
   end
