@@ -3,8 +3,7 @@ module Api
 
     respond_to :json
 
-    skip_before_filter :verify_signed_out_user, only: :destroy
-
+    # skip_before_filter :verify_signed_out_user, only: :destroy
     # before_filter :authenticate_user!
 
     def create
@@ -26,10 +25,11 @@ module Api
     end
 
     def destroy
-      before_session_destroy_signout_console_testing_printout
+      # before_session_destroy_signout_console_testing_printout
 
       # sleep tests pace loading
       # sleep 3
+
       # devise sign_out user
       sign_out(resource_name)
 
