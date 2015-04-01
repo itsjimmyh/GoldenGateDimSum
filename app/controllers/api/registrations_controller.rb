@@ -10,7 +10,7 @@ module Api
         # refresh user to show what's saved in database
         @user.reload
         # console printing, remove later
-        registrations_create_console_printout_testing
+        # registrations_create_console_printout_testing
         render :show
       else
         render json: @user.errors.full_messages, status: :unprocessable_entity

@@ -15,7 +15,7 @@ module Api
         sign_in(@user)
         # after signing in the user, refresh to show most updated saved user
         @user.reload
-        sessions_create_console_testing_printouts
+        # sessions_create_console_testing_printouts
         render :show
         return
       end
