@@ -3,11 +3,11 @@ module Api
     include MenuItemsHelper
 
     def create
-      item = MenuItem.new(menu_item_params)
-      if item.save
-        # item created
+      @item = MenuItem.new(menu_item_params)
+      if @item.save
+        render :show
       else
-        # item not created
+        render @item.errors.full_messages, status: :unprocessable_entity
       end
     end
 
