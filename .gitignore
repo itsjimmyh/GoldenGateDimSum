@@ -17,4 +17,4 @@
 /tmp
 
 # Ignore Seeds
-seeds.rb
+db/seeds.rb
