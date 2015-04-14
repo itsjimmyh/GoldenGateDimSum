@@ -11,7 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307035612) do
+ActiveRecord::Schema.define(version: 20150414071043) do
+
+  create_table "images", force: :cascade do |t|
+    t.integer "item",                                                null: false
+    t.string  "filepicker_url", default: "defaults/defaultfood.png", null: false
+  end
+
+  add_index "images", ["item"], name: "index_images_on_item"
+
+  create_table "menu_items", force: :cascade do |t|
+    t.string   "name",                                     null: false
+    t.text     "description", default: "Item Description", null: false
+    t.float    "price",                                    null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "menu_item_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "taggings", ["menu_item_id"], name: "index_taggings_on_menu_item_id"
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",                      null: false
