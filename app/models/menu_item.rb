@@ -6,6 +6,8 @@
 #  name        :string           not null
 #  description :text             default("Item Description"), not null
 #  price       :float            not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 class MenuItem < ActiveRecord::Base

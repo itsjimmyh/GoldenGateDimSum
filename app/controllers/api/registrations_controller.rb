@@ -1,6 +1,7 @@
 module Api
   class RegistrationsController < Devise::RegistrationsController
-
+    include RegistrationsHelper
+    
     respond_to :json
 
     def create
@@ -15,17 +16,5 @@ module Api
       end
     end
 
-
-    private
-    # Strong Parameters
-    def user_params
-      params.require(:user).permit(
-        :email,
-        :password,
-        :password_confirmation,
-        :first_name,
-        :last_name
-      )
-    end
   end
 end
