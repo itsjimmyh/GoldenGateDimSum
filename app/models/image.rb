@@ -8,6 +8,5 @@
 #
 
 class Image < ActiveRecord::Base
-  belongs_to :menu_item
-
+  belongs_to :imageable, polymorphic: true
 end

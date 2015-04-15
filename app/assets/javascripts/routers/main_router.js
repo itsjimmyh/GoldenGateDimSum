@@ -1,7 +1,8 @@
 ggDimSum.Routers.MainRouter = Backbone.Router.extend({
 
   routes: {
-    '': 'homePage'
+    '': 'homePage',
+    'createMenuItem': 'createMenuItem'
   },
 
   initialize: function (options) {
@@ -11,6 +12,11 @@ ggDimSum.Routers.MainRouter = Backbone.Router.extend({
   homePage: function () {
     var homePageView = new ggDimSum.Views.HomePage();
     this._swapView(homePageView);
+  },
+
+  createMenuItem: function () {
+    var createMenuItemView = new gg.DimSum.Views.MenuItem();
+    this._swapView(createMenuItemView);
   },
 
   _swapView: function (view) {

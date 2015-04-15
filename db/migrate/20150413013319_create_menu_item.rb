@@ -3,7 +3,7 @@ class CreateMenuItem < ActiveRecord::Migration
     create_table :menu_items do |t|
 
       ## Item Name
-      t.string  :name,              null: false
+      t.string  :name,              null: false, unique: true
 
       ## Item Description
       t.text    :description,       null: false, default: "Item Description"
@@ -13,5 +13,7 @@ class CreateMenuItem < ActiveRecord::Migration
 
       t.timestamps                  null: false
     end
+
+    add_index :menu_items, :name,   unique: true
   end
 end

@@ -14,11 +14,11 @@
 ActiveRecord::Schema.define(version: 20150414071043) do
 
   create_table "images", force: :cascade do |t|
-    t.integer "item",                                                null: false
+    t.integer "menu_item_id",                                        null: false
     t.string  "filepicker_url", default: "defaults/defaultfood.png", null: false
   end
 
-  add_index "images", ["item"], name: "index_images_on_item"
+  add_index "images", ["menu_item_id"], name: "index_images_on_menu_item_id"
 
   create_table "menu_items", force: :cascade do |t|
     t.string   "name",                                     null: false

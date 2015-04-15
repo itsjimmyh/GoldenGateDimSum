@@ -7,4 +7,20 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 ## Test User
-this shouldnt show up
+User.create( email:       "asdf@gmail.com",
+             password:    "asdfasdf",
+             first_name:  "Test",
+             last_name:   "User"
+           )
+
+MenuItem.create( name:        "Egg Rolls",
+                 description: "Delicious fried vegetable egg rolls x3",
+                 price:       3.95,
+                 tag_list:    "fried, snack, vegetarian"
+                )
+
+MenuItem.create( name:        "Advocado Egg Rolls",
+                 description: "Delicious fried advocado egg rolls x3",
+                 price:       4.50,
+                 tag_list:    "fried, snack, vegetarian"
+                )

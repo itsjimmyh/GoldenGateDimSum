@@ -15,13 +15,11 @@ class MenuItem < ActiveRecord::Base
 
   validates :name, :description, :price,
               presence: true
-  validates :name,
-              uniqueness: true
+  validates_uniqueness_of :name
 
   before_save do |item|
     item.name.downcase!
   end
 
-  has_many :images
-
+  has_many :images, as: :imageable, dependent: :destroy
 end
