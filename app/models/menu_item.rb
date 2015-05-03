@@ -21,5 +21,5 @@ class MenuItem < ActiveRecord::Base
     item.name.downcase!
   end
 
-  has_many :images, as: :imageable, dependent: :destroy
+  has_many :images, as: :imageable
 end
