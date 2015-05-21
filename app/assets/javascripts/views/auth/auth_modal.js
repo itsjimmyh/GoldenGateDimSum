@@ -69,6 +69,7 @@ ggDimSum.Views.AuthModal = Backbone.CompositeView.extend({
       messages: errors,
       flashClass: 'alert-danger'
     });
+    this.$('#flash-message').html();
     this.$('#flash-message').html(flashMessageView.render().$el);
     this.$('input[type=password]').val('');
   },
