@@ -29,11 +29,13 @@ ggDimSum.Views.LayoutsNavbar = Backbone.CompositeView.extend({
   },
 
   showLoginModal: function (event) {
+    this.$('#signup-modal').modal('hide');
     this.$('#login-modal').modal('show');
     this._autoFocusFirstInput('#user_email');
   },
 
   showSignupModal: function (event) {
+    this.$('#login-modal').modal('hide');
     this.$('#signup-modal').modal('show');
     this._autoFocusFirstInput('#user_first_name');
   },

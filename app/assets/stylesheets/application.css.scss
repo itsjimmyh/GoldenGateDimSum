@@ -17,37 +17,70 @@
 
 
 /* General */
-.container-fluid {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 body {
-  min-width: 1000px;
+  min-width: 100%;
 }
 
 html, body {
   height: 100%;
 }
 
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.container {
+  min-width: 300px;
+  max-width: 780px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.teal-color {
+  background-color: #7fdbd4;
+}
+
+
 
 /* Nav */
 .navbar {
+  z-index: 2000;
+  background: #36454f;
   margin-bottom: 0;
-  border-bottom: 1px solid darkGrey;
-  padding-left: 25px;
-  padding-right: 25px;
+  // border-bottom: 1px solid #36454f;
+  // padding-left: 25px;
+  // padding-right: 25px;
   border-radius: 0px;
+  position: relative;
 }
 
-.nav .open a:focus, .nav li a:hover, .nav li>a:focus {
+.nav .open a:focus, .nav li>a:focus {
   background-color: transparent;
-  // color: green;
 }
 
-.navbar-brand, .navbar-brand:hover, .nav>li>a {
-  color: #565a5c;
+.nav li a:hover {
+  color: #7fdbd4;
+  background-color: transparent;
 }
+
+.navbar-brand, .nav>li>a {
+  color: #fff;
+}
+
+.navbar-brand:hover {
+  color: #7fdbd4;
+  background-color: transparent;
+}
+
+ul .dropdown-menu {
+  background-color: #36454f;
+
+  li>a {
+    color: #fff;
+  }
+}
+
 
 
 /* Modal */
@@ -68,11 +101,16 @@ html, body {
 }
 
 .modal-backdrop.in {
-  opacity: 0.8;
+  opacity: 0.2;
 }
 
-input {
-  border: 1px;
+.modal-header {
+  background-color: #36454f;
+  color: #fff;
+}
+
+.modal-body {
+  background-color: #36454f;
 }
 
 
