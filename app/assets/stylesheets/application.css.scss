@@ -19,6 +19,7 @@
 /* General */
 body {
   min-width: 100%;
+  font-weight: 100;
 }
 
 html, body {
@@ -77,6 +78,7 @@ ul .dropdown-menu {
   background-color: #36454f;
 
   li>a {
+    font-weight: 100;
     color: #fff;
   }
 }
@@ -111,6 +113,10 @@ ul .dropdown-menu {
   color: #7fdbd4;
 }
 
+.modal-title {
+  font-weight: 100;
+}
+
 .modal-body {
   // background-color: #36454f;
   form {
@@ -122,16 +128,11 @@ ul .dropdown-menu {
   .btn-custom {
     background-color: #36454f;
     color: #fff;
+    font-weight: 100;
   }
 
   .btn-custom:hover {
     color: #7fdbd4;
-  }
-
-  #flash-message {
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -139,6 +140,9 @@ ul .dropdown-menu {
 /* Form */
 #flash-message {
   text-align: left;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form-control {
