@@ -29,14 +29,14 @@ ggDimSum.Views.LayoutsNavbar = Backbone.CompositeView.extend({
   },
 
   showLoginModal: function (event) {
-    this.$('button.navbar-toggle').click();
+    this._mobileDisplayFix();
     this.$('#signup-modal').modal('hide');
     this.$('#login-modal').modal('show');
     this._autoFocusFirstInput('#user_email');
   },
 
   showSignupModal: function (event) {
-    this.$('button.navbar-toggle').click();
+    this._mobileDisplayFix();
     this.$('#login-modal').modal('hide');
     this.$('#signup-modal').modal('show');
     this._autoFocusFirstInput('#user_first_name');
@@ -59,6 +59,10 @@ ggDimSum.Views.LayoutsNavbar = Backbone.CompositeView.extend({
     this.attachSubviews();
 
     return this;
+  },
+
+  _mobileDisplayFix: function () {
+    this.$('button.navbar-toggle').click();
   },
 
   _autoFocusFirstInput: function (selector) {

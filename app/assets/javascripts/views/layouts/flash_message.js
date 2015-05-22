@@ -1,4 +1,6 @@
 ggDimSum.Views.LayoutsFlashMessage = Backbone.CompositeView.extend({
+  // id: "flash-message",
+
   template: JST['layouts/flash_message'],
 
   initialize: function (options) {
@@ -11,7 +13,9 @@ ggDimSum.Views.LayoutsFlashMessage = Backbone.CompositeView.extend({
       messages: this.messages,
       flashClass: this.flashClass
     });
-    this.$el.html(renderedContent);
+    // this.$el.html(renderedContent);
+    this.$el = renderedContent;
+    this.delegateEvents(this.events);
 
     return this;
   }

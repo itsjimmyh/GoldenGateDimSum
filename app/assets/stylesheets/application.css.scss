@@ -85,12 +85,12 @@ ul .dropdown-menu {
 
 /* Modal */
 .modal-dialog {
-  margin-top: 12%;
+  margin-top: 13%;
 }
 
 .modal-content {
   width: 100%;
-  height: 100%;
+  height: 120%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 2px;
@@ -128,6 +128,11 @@ ul .dropdown-menu {
     color: #7fdbd4;
   }
 
+  #flash-message {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 
