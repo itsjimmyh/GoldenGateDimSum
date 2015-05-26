@@ -1,3 +1,4 @@
+// new flashmessage returns this = html, so there is no wrapper div
 ggDimSum.Views.LayoutsFlashMessage = Backbone.CompositeView.extend({
 
   template: JST['layouts/flash_message'],

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       sessions:      'api/sessions'
     }
 
-    resources :menu_items, only: [:new, :index, :create, :show]
+    resources :menu_items, only: [:new, :index, :create, :show, :destroy]
 
   end
 end

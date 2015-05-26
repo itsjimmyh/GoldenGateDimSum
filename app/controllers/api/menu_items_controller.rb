@@ -29,5 +29,15 @@ module Api
       end
     end
 
+    def destroy
+      @item = MenuItem.find_by_id(params[:id])
+      if @item
+        @item.destroy
+        render json: @item
+      else
+        render json: { message: "Item Not Found" }
+      end
+    end
+
   end
 end

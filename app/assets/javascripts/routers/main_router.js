@@ -2,7 +2,8 @@ ggDimSum.Routers.MainRouter = Backbone.Router.extend({
 
   routes: {
     '': 'homePage',
-    'createMenuItem': 'createMenuItem'
+    'createMenuItem': 'createMenuItem',
+    'category/:tag': 'showMenuItemsWithThisTag'
   },
 
   initialize: function (options) {
@@ -10,13 +11,20 @@ ggDimSum.Routers.MainRouter = Backbone.Router.extend({
   },
 
   homePage: function () {
-    var homePageView = new ggDimSum.Views.HomePage();
+    var homePageView = new ggDimSum.Views.HomePage({
+      collection: ggDimSum.Collections.allTags
+    });
     this._swapView(homePageView);
   },
 
   createMenuItem: function () {
-    var createMenuItemView = new gg.DimSum.Views.MenuItem();
+    var createMenuItemView = new ggDimSum.Views.MenuItem();
     this._swapView(createMenuItemView);
+  },
+
+  showMenuItemsWithThisTag: function (tag) {
+    // fetch the updated collection of tags
+    // pass it to the view that will handle the display of this tag
   },
 
   _swapView: function (view) {

@@ -1,7 +1,7 @@
 module Api
   class RegistrationsController < Devise::RegistrationsController
     include RegistrationsHelper
-    
+
     respond_to :json
 
     def create
@@ -16,5 +16,7 @@ module Api
       end
     end
 
+
+    # update, change delivery address, consider moving out the user info to its own table
   end
 end
