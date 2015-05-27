@@ -13,16 +13,25 @@ ggDimSum.Views.HomePage = Backbone.CompositeView.extend({
 
   // one function that collects all other functions to set up homePageView
   setUpPageContentWithFoodChoices: function () {
-    this._addAllMenuItemsChoices();
+    this._addAllMenuItemsSection();
+    this._addOtherMenuItemsSection();
   },
 
   // top section#all-menu-items
-  _addAllMenuItemsChoices: function () {
+  _addAllMenuItemsSection: function () {
     var allMenuItemsView = new ggDimSum.Views.MenuItems({
-      collection: ggDimSum.Collections.allTags,
+      collection: this.collection,
       template: "all"
     });
     this.addSubview('#all-menu-items', allMenuItemsView);
+  },
+
+  _addOtherMenuItemsSection: function () {
+    var otherMenuItemsView = new ggDimSum.Views.MenuItems({
+      collection: this.collection,
+      template: false
+    });
+    this.addSubview('#other-menu-items', otherMenuItemsView);
   },
 
   render: function () {
