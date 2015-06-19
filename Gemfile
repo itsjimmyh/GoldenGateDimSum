@@ -16,6 +16,8 @@ gem 'font-awesome-rails'
 gem 'unicorn'
 gem 'newrelic_rpm'
 
+gem 'postmates'
+
 group :development do
   gem 'annotate'
   gem 'pry-rails'

@@ -14,11 +14,13 @@
 ActiveRecord::Schema.define(version: 20150414071043) do
 
   create_table "images", force: :cascade do |t|
-    t.integer "menu_item_id",                                        null: false
+    t.integer "imageable_id",                                        null: false
+    t.string  "imageable_type",                                      null: false
     t.string  "filepicker_url", default: "defaults/defaultfood.png", null: false
   end
 
-  add_index "images", ["menu_item_id"], name: "index_images_on_menu_item_id"
+  add_index "images", ["imageable_id"], name: "index_images_on_imageable_id"
+  add_index "images", ["imageable_type"], name: "index_images_on_imageable_type"
 
   create_table "menu_items", force: :cascade do |t|
     t.string   "name",                                     null: false
@@ -27,6 +29,8 @@ ActiveRecord::Schema.define(version: 20150414071043) do
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
   end
+
+  add_index "menu_items", ["name"], name: "index_menu_items_on_name", unique: true
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

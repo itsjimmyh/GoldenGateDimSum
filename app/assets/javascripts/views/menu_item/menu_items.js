@@ -15,7 +15,7 @@ ggDimSum.Views.MenuItems = Backbone.CompositeView.extend({
   // router will handle the subsequent view change
   showMenuItemsWithThisTag: function (event) {
     var $tag = event.currentTarget.data("-tag");
-    Backbone.history.navigate("#/category/" + $tag, { trigger: true });
+    Backbone.history.navigate("#/menu/" + $tag, { trigger: true });
   },
 
   render: function () {

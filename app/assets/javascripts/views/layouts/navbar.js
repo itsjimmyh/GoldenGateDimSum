@@ -43,11 +43,13 @@ ggDimSum.Views.LayoutsNavbar = Backbone.CompositeView.extend({
   },
 
   logoutCurrentUser: function (user) {
+    var that = this;
     $.ajax({
       url: '/api/users/sign_out',
       type: 'DELETE',
       success: function (model, resp) {
         ggDimSum.currentUser.clear();
+        that._mobileDisplayBlockFix();
       },
       error: function (model, resp) {
         console.log("wat, logout error?!?");

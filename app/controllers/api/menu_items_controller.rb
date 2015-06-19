@@ -3,13 +3,15 @@ module Api
     include MenuItemsHelper
 
     def new
-      render json: { message: 'hello' }
+      render json: { message: 'hello from MenuItemsController#New' }
     end
+
 
     def index
       @items = MenuItem.includes(:images, :tags).all
       render json: @items
     end
+
 
     def create
       @item = MenuItem.new(menu_item_params)
@@ -20,6 +22,7 @@ module Api
       end
     end
 
+
     def show
       @item = MenuItem.find_by_id(params[:id])
       if @item
@@ -28,6 +31,7 @@ module Api
         render json: { message: "Item Not Found" }
       end
     end
+
 
     def destroy
       @item = MenuItem.find_by_id(params[:id])

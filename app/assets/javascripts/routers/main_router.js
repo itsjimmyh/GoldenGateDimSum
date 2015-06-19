@@ -3,7 +3,7 @@ ggDimSum.Routers.MainRouter = Backbone.Router.extend({
   routes: {
     '': 'homePage',
     'createMenuItem': 'createMenuItem',
-    'category/:tag': 'showMenuItemsWithThisTag'
+    'menu/:tag': 'showMenuItemsWithThisTag'
   },
 
   initialize: function (options) {
@@ -23,6 +23,7 @@ ggDimSum.Routers.MainRouter = Backbone.Router.extend({
   },
 
   showMenuItemsWithThisTag: function (tag) {
+    var collection = new ggDimSum.Collections.MenuItems({ tag: tag });
     // fetch the updated collection of tags
     // pass it to the view that will handle the display of this tag
   },

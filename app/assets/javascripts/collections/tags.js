@@ -1,8 +1,7 @@
 ggDimSum.Collections.Tags = Backbone.Collection.extend({
-  url: 'api/tags',
-  model: ggDimSum.Models.Tag
+  model: ggDimSum.Models.Tag,
+  url: '/api/tags'
 
-  
 });
 
 ggDimSum.Collections.allTags = new ggDimSum.Collections.Tags();
